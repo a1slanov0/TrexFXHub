@@ -39,11 +39,22 @@
 </head>
 <body translate="no">
 
-    <header>
-        <div class="logo-text">TrexFX Hub</div>
-        <h1>Professional Alight Motion XMLs & Presets</h1>
-        <p>En kaliteli kurgu şablonlarını, geçişleri ve efektleri doğrudan indirin.</p>
-    </header>
+    <header style="position: relative;">
+    <!-- Sol üstdə Profil İkonu -->
+    <div style="position: absolute; top: 20px; left: 20px; display: flex; align-items: center; gap: 8px;">
+        <div style="width: 35px; height: 35px; background: #a855f7; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; box-shadow: 0 0 10px rgba(168,85,247,0.5);">👤</div>
+    </div>
+
+    <!-- Sağ üstdə Giriş Düyməsi -->
+    <div style="position: absolute; top: 20px; right: 20px;">
+        <button onclick="openLoginModal()" style="background: linear-gradient(135deg, #a855f7, #6366f1); border: none; color: white; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 15px rgba(168,85,247,0.3);">Giriş Yap</button>
+    </div>
+
+    <div class="logo-text">TrexFX Hub</div>
+    <h1>Professional Alight Motion XMLs & Presets</h1>
+    <p>En kaliteli kurgu şablonlarını, geçişleri ve efektleri doğrudan indirin.</p>
+</header>
+
     <!-- Axtarış Qutusu -->
     <div style="display: flex; justify-content: center; margin: 20px 0;">
         <div style="position: relative; width: 90%; max-width: 400px;">
