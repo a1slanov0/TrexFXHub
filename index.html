@@ -183,6 +183,38 @@ function closeLoginModal() {
     document.getElementById('loginModal').style.display = 'none';
 }
 </script>
+    <!-- Firebase Skriptləri və Giriş Məntiqi -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase/app.js";
+        import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.8.0/firebase/auth.js";
+
+        const firebaseConfig = {
+          apiKey: "AIzaSyAa6XZPDs5jLQEJvnzya1NLc224uQILrSU",
+          authDomain: "trexfxhub.firebaseapp.com",
+          projectId: "trexfxhub",
+          storageBucket: "trexfxhub.firebasestorage.app",
+          messagingSenderId: "427347591711",
+          appId: "1:427347591711:web:5d494c22b3935cca400b2a",
+          measurementId: "G-QWPCNF6E9K"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const provider = new GoogleAuthProvider();
+
+        // Saytdakı düyməni işə salırıq (openLoginModal funksiyası ilə əlaqələndiririk)
+        window.openLoginModal = function() {
+            signInWithPopup(auth, provider)
+                .then((result) => {
+                    const user = result.user;
+                    alert("Xoş gəldin, " + user.displayName);
+                })
+                .catch((error) => {
+                    console.error("Giriş xətası: ", error.message);
+                    alert("Xəta baş verdi: " + error.message);
+                });
+        };
+    </script>
 
 </body>
 </html>
