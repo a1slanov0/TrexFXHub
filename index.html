@@ -44,6 +44,13 @@
         <h1>Professional Alight Motion XMLs & Presets</h1>
         <p>En kaliteli kurgu şablonlarını, geçişleri ve efektleri doğrudan indirin.</p>
     </header>
+    <!-- Axtarış Qutusu -->
+    <div style="display: flex; justify-content: center; margin: 20px 0;">
+        <div style="position: relative; width: 90%; max-width: 400px;">
+            <span style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); font-size: 18px;">🔍</span>
+            <input type="text" id="trex-search" placeholder="XML veya efekt ara..." onkeyup="filterXMLs()" style="width: 100%; padding: 12px 15px 12px 45px; background: #1a102f; border: 1px solid #a855f7; border-radius: 25px; color: white; font-size: 14px; outline: none; box-shadow: 0 4px 15px rgba(168,85,247,0.2);">
+        </div>
+    </div>
 
     <div class="categories">
            <a href="index.html" class="cat-btn active" translate="no">Tüm XML'ler</a>
@@ -58,7 +65,7 @@
 
     <div class="container">
         <!-- Nümunə XML Kartı 1 -->
-        <div class="card">
+        <div class="card xml-card ">
             <div>
                 <span class="card-tag">Shake</span>
                 <h3>Smooth Shake Preset</h3>
@@ -127,6 +134,21 @@ function sendTrexMessage() {
         messagesContainer.innerHTML += `<div style="background: #2a1b4e; padding: 8px 12px; border-radius: 8px; max-width: 80%;">Harika bir soru! TrexAI şu an yerel modda çalışıyor. Size Alight Motion, XML şablonları ve projeleriniz hakkında yardımcı olmak için buradayım.</div>`;
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
     }, 1000);
+}
+</script>
+<script>
+function filterXMLs() {
+    let input = document.getElementById('trex-search').value.toLowerCase();
+    let cards = document.getElementsByClassName('xml-card');
+
+    for (let i = 0; i < cards.length; i++) {
+        let text = cards[i].innerText.toLowerCase();
+        if (text.includes(input)) {
+            cards[i].style.display = "";
+        } else {
+            cards[i].style.display = "none";
+        }
+    }
 }
 </script>
 
