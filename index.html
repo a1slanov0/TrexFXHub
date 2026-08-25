@@ -202,19 +202,18 @@ function closeLoginModal() {
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const provider = new GoogleAuthProvider();
+document.getElementById("googleLoginBtn").addEventListener("click", () => {
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      const user = result.user;
+      alert("Xoş gəldin, " + user.displayName);
+    })
+    .catch((error) => {
+      console.error("Giriş xətası: ", error.message);
+      alert("Xəta baş verdi: " + error.message);
+    });
+});
 
-        // Saytdakı düyməni işə salırıq (openLoginModal funksiyası ilə əlaqələndiririk)
-        window.openLoginModal = function() {
-            signInWithPopup(auth, provider)
-                .then((result) => {
-                    const user = result.user;
-                    alert("Xoş gəldin, " + user.displayName);
-                })
-                .catch((error) => {
-                    console.error("Giriş xətası: ", error.message);
-                    alert("Xəta baş verdi: " + error.message);
-                });
-        };
     </script>
 
 </body>
